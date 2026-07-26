@@ -169,7 +169,7 @@ p { margin: 0 0 14px; color: var(--color-muted); }
   padding: 14px 0;
 }
 .nav__logo { margin-left: 10px; display: flex; align-items: center; }
-.nav__logo img { height: 100px; width: auto; }
+.nav__logo img { height: 150px; width: auto; }
 .nav__links {
   display: flex;
   align-items: center;
