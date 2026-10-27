@@ -55,8 +55,10 @@
           (e.g. Formspree, Netlify Forms, Getform) or your own
           server endpoint so submissions actually get delivered.
           Client-side validation is handled in js/main.js.
+          Until an action is set, js/main.js opens the visitor's email
+          app with the message pre-filled (to the data-mailto address).
         -->
-        <form id="contact-form" action="" method="POST">
+        <form id="contact-form" action="" method="POST" data-mailto="info@omnacare.co.za">
           <h3 style="margin-bottom:4px">Get in Touch</h3>
           <p class="form-note" style="margin-bottom:20px">Fields marked * are required.</p>
           <div id="form-status" class="form-status" role="alert"></div>
@@ -120,6 +122,21 @@
           </div>
           <p class="form-note">Appointments can be made via Phone, Email, or WhatsApp.</p>
         </div>
+
+        <div class="card" style="margin-top:24px">
+          <h3>Find Us</h3>
+          <div class="contact-block">
+            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <address style="font-style:normal">K90 Centre, Suite N5B<br>Cnr North Rand &amp; Rondebult Rd<br>Jansen Park, Boksburg, 1459</address>
+          </div>
+          <div class="map-embed">
+            <iframe title="Map showing Omnacare at K90 Centre, Boksburg" src="https://www.google.com/maps?q=K90+Centre%2C+Cnr+North+Rand+%26+Rondebult+Rd%2C+Jansen+Park%2C+Boksburg+1459&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+          <div class="btn-group map-actions">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=K90+Centre%2C+Cnr+North+Rand+%26+Rondebult+Rd%2C+Jansen+Park%2C+Boksburg+1459" target="_blank" rel="noopener"><i class="fas fa-route"></i> Get Directions</a>
+            <a class="btn btn-secondary" href="https://waze.com/ul?q=K90%20Centre%20Jansen%20Park%20Boksburg&amp;navigate=yes" target="_blank" rel="noopener"><i class="fab fa-waze"></i> Open in Waze</a>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -129,6 +146,9 @@
     <div class="container">
       <img class="footer-logo" src="data/files/omnacarelogotransparent.png" alt="Omnacare">
       <div><strong>Omnacare Multidisciplinary Practice</strong></div>
+      <address class="footer-address">K90 Centre, Suite N5B<br>Cnr North Rand &amp; Rondebult Rd<br>Jansen Park, Boksburg, 1459<br>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=K90+Centre%2C+Cnr+North+Rand+%26+Rondebult+Rd%2C+Jansen+Park%2C+Boksburg+1459" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> View on Google Maps</a>
+      </address>
       <div class="footer-social">
         <a href="https://www.facebook.com/profile.php?id=61579705359234" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://wa.me/27760344131" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>

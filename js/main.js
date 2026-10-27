@@ -105,9 +105,27 @@ document.addEventListener('DOMContentLoaded', function () {
         statusBox.textContent = 'Please check the following: ' + missing.join(', ') + '.';
         statusBox.className = 'form-status is-visible form-status--error';
         statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
       }
-      // If validation passes, the form submits normally to whatever
-      // endpoint is set in the form's action attribute (see comment in HTML).
+
+      // No form endpoint configured (static hosting can't accept POSTs):
+      // open the visitor's email app with the message pre-filled instead.
+      var mailto = form.getAttribute('data-mailto');
+      if (!form.getAttribute('action') && mailto) {
+        e.preventDefault();
+        var val = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+        var body = 'Name: ' + val('full-name') +
+          '\nE-mail: ' + val('email') +
+          '\nContact Number: ' + val('phone') +
+          '\n\n' + val('message');
+        window.location.href = 'mailto:' + mailto +
+          '?subject=' + encodeURIComponent(val('subject')) +
+          '&body=' + encodeURIComponent(body);
+        statusBox.textContent = 'Your email app should now open with your message ready to send. If it doesn\'t, please email us at ' + mailto + ' or WhatsApp 076 034 4131.';
+        statusBox.className = 'form-status is-visible form-status--success';
+      }
+      // Otherwise the form submits normally to whatever endpoint is set
+      // in the form's action attribute (see comment in HTML).
     });
   }
 
